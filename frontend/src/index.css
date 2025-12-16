@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+body {
+  @apply bg-slate-900 text-slate-100;
+}
+
+input, button {
+  @apply rounded border border-slate-600 bg-slate-800 text-slate-100 px-2 py-1;
+}
+
+button {
+  @apply cursor-pointer hover:bg-slate-700;
+}
