@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:4000';
+// Use Render backend URL instead of localhost
+const API_URL =
+  import.meta.env.VITE_API_URL || 'https://stock-flow-back.onrender.com';
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token') || '');
@@ -22,7 +24,7 @@ function App() {
     lowStockThreshold: 5,
   });
 
-  // NEW: which product is being edited (null = create mode)
+  // which product is being edited (null = create mode)
   const [editingId, setEditingId] = useState(null);
 
   const isAuthed = !!token;
@@ -95,7 +97,7 @@ function App() {
     }
   };
 
-  // NEW: update existing product
+  // update existing product
   const updateProduct = async () => {
     if (!editingId) return;
     try {
